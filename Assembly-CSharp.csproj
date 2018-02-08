@@ -116,6 +116,17 @@
      <Compile Include="Assets\Scripts\SharedLibrary.cs" />
      <Compile Include="Assets\Scripts\ShowCompassAccuracy.cs" />
      <Compile Include="Assets\Scripts\Turret.cs" />
+     <Compile Include="Assets\xARM\Classes\xARMClasses.cs" />
+     <Compile Include="Assets\xARM\Components\xARMDelegatesExample.cs" />
+     <Compile Include="Assets\xARM\Components\xARMDelegateUGUI.cs" />
+     <Compile Include="Assets\xARM\Components\xARMProxy.cs" />
+     <Compile Include="Assets\xARM\Managers\xARMConfig.cs" />
+     <Compile Include="Assets\xARM\Managers\xARMManager.cs" />
+     <Compile Include="Assets\xARM\Windows\xARMGalleryWindow.cs" />
+     <Compile Include="Assets\xARM\Windows\xARMHotkeys.cs" />
+     <Compile Include="Assets\xARM\Windows\xARMOptionsWindow.cs" />
+     <Compile Include="Assets\xARM\Windows\xARMPreviewWindow.cs" />
+     <None Include="Assets\xARM\_Changelog.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Fog.shader" />

@@ -86,6 +86,7 @@
      <Compile Include="Assets\EarthSimplePlanets\PostProcessing\Editor\Utils\FxStyles.cs" />
      <Compile Include="Assets\EarthSimplePlanets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <None Include="Assets\xARM\_Changelog.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Fog.shader" />
