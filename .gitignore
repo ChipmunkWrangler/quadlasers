@@ -1,0 +1,10 @@
+Library
+Temp
+iosbuild
+obj
+*.userprefs
+PluginDocs
+Screenshots
+android.apk
+desktop.app
+*.lock

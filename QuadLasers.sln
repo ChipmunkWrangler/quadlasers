@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadLasers", "Assembly-CSharp-firstpass.csproj", "{05A2E72F-525C-6844-BE55-0C777056942D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadLasers", "Assembly-CSharp.csproj", "{A6D55081-FB31-3F3F-E6D6-5A05FB4AE25A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadLasers", "Assembly-CSharp-Editor.csproj", "{6214C0E3-FBB9-2F0C-AA92-2780DEC02D20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05A2E72F-525C-6844-BE55-0C777056942D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A2E72F-525C-6844-BE55-0C777056942D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A2E72F-525C-6844-BE55-0C777056942D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A2E72F-525C-6844-BE55-0C777056942D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D55081-FB31-3F3F-E6D6-5A05FB4AE25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D55081-FB31-3F3F-E6D6-5A05FB4AE25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D55081-FB31-3F3F-E6D6-5A05FB4AE25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D55081-FB31-3F3F-E6D6-5A05FB4AE25A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6214C0E3-FBB9-2F0C-AA92-2780DEC02D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6214C0E3-FBB9-2F0C-AA92-2780DEC02D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6214C0E3-FBB9-2F0C-AA92-2780DEC02D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6214C0E3-FBB9-2F0C-AA92-2780DEC02D20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
