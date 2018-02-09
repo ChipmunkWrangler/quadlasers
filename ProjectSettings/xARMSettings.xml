@@ -4374,7 +4374,7 @@
   <GalleryScreenCapsPerRow>1</GalleryScreenCapsPerRow>
   <GalleryUpdateIntervalLimitEdit>12</GalleryUpdateIntervalLimitEdit>
   <GameViewPosition>
-    <x>0</x>
-    <y>40</y>
+    <x>37</x>
+    <y>195</y>
   </GameViewPosition>
 </xARMConfig>
