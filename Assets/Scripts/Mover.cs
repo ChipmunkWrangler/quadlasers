@@ -7,7 +7,6 @@ public class Mover : MonoBehaviour {
 	[SerializeField] float approachSpeed;
 
 	Vector3 orbitCentre;
-	Vector3 axis;
 	float speed;
 	bool isOrbiting;
 
@@ -30,30 +29,13 @@ public class Mover : MonoBehaviour {
 		transform.SetParent( tgt );
 		orbitCentre = tgt.position;
 		speed = Random.Range( minSpeed, maxSpeed );
-		axis = GetNormal();
 		isOrbiting = true;
 
 	}
 
-	Vector3 GetNormal () {
-		// first pick a plane on which our position and our orbital centre lie:
-		Vector3 p1 = transform.position;
-		Vector3 p2 = orbitCentre;
-		Vector3 p3 = Random.onUnitSphere;
-		Vector3 side1 = p2 - p1;
-		Vector3 side2 = p3 - p1;
-		if (side1 == Vector3.zero) {
-			side1 = Vector3.forward;
-		}
-		if (side2 == Vector3.zero) {
-			side2 = Vector3.up;
-		}
-		return Vector3.Cross( side1, side2 );
-	}
-
 	void Update () {
 		if (isOrbiting) {
-			transform.RotateAround( orbitCentre, axis, speed * Time.deltaTime );
+			transform.RotateAround( orbitCentre, Vector3.up, speed * Time.deltaTime );
 			MoveTowards( orbitCentre );
 		}
 	}

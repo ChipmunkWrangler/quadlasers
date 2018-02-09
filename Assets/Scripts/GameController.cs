@@ -32,7 +32,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void SpawnAsteroid () {
-		Vector3 spawnPosition = Random.onUnitSphere * spawnDistance;
+		Vector2 onUnitCircle = Random.insideUnitCircle.normalized;
+		Vector3 spawnPosition = new Vector3( onUnitCircle.x, 0, onUnitCircle.y ) * spawnDistance;
 		GameObject hazardPrototype = hazards[ Random.Range( 0, hazards.Length ) ];
 		GameObject asteroid = (GameObject)Instantiate( hazardPrototype, spawnPosition, Quaternion.identity );
 		asteroid.SendMessage( "SetController", gameObject );

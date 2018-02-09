@@ -22,7 +22,7 @@ public class Turret : MonoBehaviour {
 	
 
 
-	#else
+#else
 	private Rigidbody rb;
 	#endif
 
@@ -41,7 +41,7 @@ public class Turret : MonoBehaviour {
 		transform.rotation = GetCompassRotation();
 #else
 		Vector3 rotationVelocity = GetMouseInput();
-		rb.AddTorque( transform.right * rotationVelocity.x );	
+//		rb.AddTorque( transform.right * rotationVelocity.x );	
 		rb.AddTorque( transform.up * rotationVelocity.y );
 #endif
 	}
@@ -74,7 +74,7 @@ public class Turret : MonoBehaviour {
 	
 
 
-	#else
+#else
 	Vector3 GetMouseInput () {
 		return new Vector3( -Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0.0f ) * speed;
 	}
