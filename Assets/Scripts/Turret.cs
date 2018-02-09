@@ -1,5 +1,5 @@
 ﻿#if UNITY_IOS || UNITY_ANDROID
-//#define COMPASS_ROTATION
+#define COMPASS_ROTATION
 #endif
 
 using UnityEngine;
@@ -22,15 +22,15 @@ public class Turret : MonoBehaviour {
 	
 
 
-#else
+	#else
 	private Rigidbody rb;
 	#endif
 
 	void Start () {
 		#if COMPASS_ROTATION
-			Input.compass.enabled = true;
-			wasCalibrated = true;
-		print("Compass");
+		Input.compass.enabled = true;
+		wasCalibrated = true;
+		print( "Compass" );
 		#else
 		rb = GetComponent<Rigidbody>();
 		#endif
@@ -47,14 +47,14 @@ public class Turret : MonoBehaviour {
 	}
 
 	#if COMPASS_ROTATION
-	Quaternion GetCompassRotation() {
+	Quaternion GetCompassRotation () {
 		debugText_accuracy.text = Input.compass.headingAccuracy.ToString();
 		debugText_heading.text = Input.compass.magneticHeading.ToString();
 		if (IsCompassCalibrated()) {
-			SetCalibratedStatus (true);
-			return Quaternion.Euler(0, Input.compass.magneticHeading, 0);
+			SetCalibratedStatus( true );
+			return Quaternion.Euler( 0, Input.compass.magneticHeading, 0 );
 		} else {
-			SetCalibratedStatus (false);
+			SetCalibratedStatus( false );
 			return transform.rotation;
 		}
 	}
@@ -65,7 +65,7 @@ public class Turret : MonoBehaviour {
 
 	void SetCalibratedStatus (bool isCalibrated) {
 		if (isCalibrated != wasCalibrated) {
-			AssemblyCSharp.SharedLibrary.InformSubscribers (subscribers, "CompassCalibrated", isCalibrated);
+			AssemblyCSharp.SharedLibrary.InformSubscribers( subscribers, "CompassCalibrated", isCalibrated );
 			wasCalibrated = isCalibrated;
 		}
 
@@ -74,7 +74,7 @@ public class Turret : MonoBehaviour {
 	
 
 
-#else
+	#else
 	Vector3 GetMouseInput () {
 		return new Vector3( -Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0.0f ) * speed;
 	}
