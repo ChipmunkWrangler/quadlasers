@@ -30,6 +30,7 @@ public class GameOverOnContact : MonoBehaviour {
 
 	void Update () {
 		if (isGameOver && Input.GetButton( "Fire1" )) {
+			Time.timeScale = 1.0f;
 			UnityEngine.SceneManagement.SceneManager.LoadScene( 0 );
 		}
 	}
