@@ -8,6 +8,8 @@ public class GameOverOnContact : MonoBehaviour {
 	[SerializeField] GameObject hideOnGameOver;
 	[SerializeField] GameObject finalExplosion;
 	bool isGameOver;
+	const float textFadeTime = 2.0f;
+	const float delayBetweenExplosionAndText = 0.5f;
 
 	void Start () {
 		gameOverText.CrossFadeAlpha( 0.0f, 0.0f, false );
@@ -15,24 +17,26 @@ public class GameOverOnContact : MonoBehaviour {
 	}
 
 	void OnTriggerEnter () {
-		GameOver();		
+		StartCoroutine( GameOver() );
 	}
 
-	void GameOver () {
-		if (gameOverText != null) {
-			gameOverText.CrossFadeAlpha( 1.0f, 2.0f, true );
-		}
-		if (tapToContinueText != null) {
-			tapToContinueText.CrossFadeAlpha( 1.0f, 5.0f, true );
-		}
+	IEnumerator GameOver () {
+		Time.timeScale = 0;
 		if (hideOnGameOver != null) {
 			hideOnGameOver.SetActive( false );
 		}
 		if (finalExplosion != null) {
 			finalExplosion.SetActive( true );
+			yield return new WaitForSecondsRealtime( delayBetweenExplosionAndText );
 		}
-		Time.timeScale = 0;
-		isGameOver = true;
+		if (gameOverText != null) {
+			gameOverText.CrossFadeAlpha( 1.0f, textFadeTime, true );
+			yield return new WaitForSecondsRealtime( textFadeTime );
+		}
+		if (tapToContinueText != null) {
+			tapToContinueText.CrossFadeAlpha( 1.0f, textFadeTime, true );
+			isGameOver = true;
+		}
 	}
 
 	void Update () {
