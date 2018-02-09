@@ -26,7 +26,7 @@ public class Mover : MonoBehaviour {
 
 
 	void OrbitAround (Transform tgt) {
-		transform.SetParent( tgt );
+//		transform.SetParent( tgt );
 		orbitCentre = tgt.position;
 		speed = Random.Range( minSpeed, maxSpeed );
 		isOrbiting = true;
