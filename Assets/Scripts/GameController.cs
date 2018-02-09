@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-	public GameObject hazard;
+	public GameObject[] hazards;
 	public float spawnZ;
 	public float minSpawnX, maxSpawnX;
 	public int minPerWave, maxPerWave;
@@ -14,31 +14,32 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
-		StartCoroutine(SpawnWaves());
+		StartCoroutine( SpawnWaves() );
 	}
 
-	IEnumerator SpawnWaves() {
-		yield return new WaitForSeconds(initialWaitInSeconds);
+	IEnumerator SpawnWaves () {
+		yield return new WaitForSeconds( initialWaitInSeconds );
 		while (true) {
-			yield return StartCoroutine(SpawnWave(Random.Range (minPerWave, maxPerWave)));
-			yield return new WaitForSeconds(waveGapInSeconds);
+			yield return StartCoroutine( SpawnWave( Random.Range( minPerWave, maxPerWave ) ) );
+			yield return new WaitForSeconds( waveGapInSeconds );
 		}
 	}
 
-	IEnumerator SpawnWave(int numToSpawn) {
+	IEnumerator SpawnWave (int numToSpawn) {
 		for (int i = 0; i < numToSpawn; ++i) {
 			SpawnAsteroid();
-			yield return new WaitForSeconds(spawnGapInSeconds);
+			yield return new WaitForSeconds( spawnGapInSeconds );
 		}
 	}
 
-	void SpawnAsteroid() {
-		Vector3 spawnPosition = new Vector3(Random.Range (minSpawnX, maxSpawnX), 0, spawnZ);
-		GameObject asteroid = (GameObject) Instantiate(hazard, spawnPosition, Quaternion.identity);
-		asteroid.SendMessage("SetController", gameObject);
+	void SpawnAsteroid () {
+		Vector3 spawnPosition = new Vector3( Random.Range( minSpawnX, maxSpawnX ), 0, spawnZ );
+		GameObject hazardPrototype = hazards[ Random.Range( 0, hazards.Length ) ];
+		GameObject asteroid = (GameObject)Instantiate( hazardPrototype, spawnPosition, Quaternion.identity );
+		asteroid.SendMessage( "SetController", gameObject );
 	}
 
-	void ObjectDestroyed(GameObject objectDestroyed) {
-		AssemblyCSharp.SharedLibrary.InformSubscribers (subscribers, "ObjectDestroyed", objectDestroyed);
+	void ObjectDestroyed (GameObject objectDestroyed) {
+		AssemblyCSharp.SharedLibrary.InformSubscribers( subscribers, "ObjectDestroyed", objectDestroyed );
 	}
 }
