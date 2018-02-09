@@ -36,7 +36,8 @@ public class GameController : MonoBehaviour {
 		GameObject hazardPrototype = hazards[ Random.Range( 0, hazards.Length ) ];
 		GameObject asteroid = (GameObject)Instantiate( hazardPrototype, spawnPosition, Quaternion.identity );
 		asteroid.SendMessage( "SetController", gameObject );
-		asteroid.SendMessage( "MoveTowards", Camera.main.transform.position );
+//		asteroid.SendMessage( "MoveTowards", Camera.main.transform.position );
+		asteroid.SendMessage( "OrbitAround", Camera.main.transform );
 	}
 
 	void ObjectDestroyed (GameObject objectDestroyed) {
