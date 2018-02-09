@@ -6,6 +6,8 @@ public class GameOverOnContact : MonoBehaviour {
 	[SerializeField] UnityEngine.UI.Text gameOverText;
 	[SerializeField] UnityEngine.UI.Text tapToContinueText;
 
+	bool isGameOver;
+
 	void Start () {
 		gameOverText.CrossFadeAlpha( 0.0f, 0.0f, false );
 		tapToContinueText.CrossFadeAlpha( 0.0f, 0.0f, false );
@@ -23,8 +25,13 @@ public class GameOverOnContact : MonoBehaviour {
 			tapToContinueText.CrossFadeAlpha( 1.0f, 5.0f, true );
 		}
 		Time.timeScale = 0;
-		Debug.Log( "Game over" );
+		isGameOver = true;
+	}
 
+	void Update () {
+		if (isGameOver && Input.GetButton( "Fire1" )) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene( 0 );
+		}
 	}
 	
 }
