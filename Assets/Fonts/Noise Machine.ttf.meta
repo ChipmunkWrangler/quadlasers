@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1313cbe3c491d43ed97173f2b2c8384f
+timeCreated: 1518189014
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noise Machine
+  fontNames:
+  - Noise Machine
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
