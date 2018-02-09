@@ -3,8 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public GameObject[] hazards;
-	public float spawnZ;
-	public float minSpawnX, maxSpawnX;
+	public float spawnDistance;
 	public int minPerWave, maxPerWave;
 	public float initialWaitInSeconds;
 	public float waveGapInSeconds;
@@ -33,10 +32,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	void SpawnAsteroid () {
-		Vector3 spawnPosition = new Vector3( Random.Range( minSpawnX, maxSpawnX ), 0, spawnZ );
+		Vector3 spawnPosition = Random.onUnitSphere * spawnDistance;
 		GameObject hazardPrototype = hazards[ Random.Range( 0, hazards.Length ) ];
 		GameObject asteroid = (GameObject)Instantiate( hazardPrototype, spawnPosition, Quaternion.identity );
 		asteroid.SendMessage( "SetController", gameObject );
+		asteroid.SendMessage( "MoveTowards", Camera.main.transform.position );
 	}
 
 	void ObjectDestroyed (GameObject objectDestroyed) {
