@@ -149,17 +149,12 @@
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
-     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\UI\Trackball.shader" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\Shaders\DisplayNightEarthTexture.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Bloom.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\TAA.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
@@ -171,11 +166,9 @@
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Bloom.shader" />
-     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
  <Reference Include="UnityEngine.UI">
@@ -211,10 +204,6 @@
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>/Users/rafael/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{02205AF3-B306-2233-F81C-2CAB12617B34}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

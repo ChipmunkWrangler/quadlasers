@@ -85,7 +85,6 @@
      <Compile Include="Assets\EarthSimplePlanets\PostProcessing\Editor\Utils\EditorResources.cs" />
      <Compile Include="Assets\EarthSimplePlanets\PostProcessing\Editor\Utils\FxStyles.cs" />
      <Compile Include="Assets\EarthSimplePlanets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
-     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\xARM\_Changelog.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
@@ -107,17 +106,12 @@
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\MotionBlur.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
-     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\UI\Trackball.shader" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\Shaders\DisplayNightEarthTexture.shader" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Bloom.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\TAA.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
@@ -129,11 +123,9 @@
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\Bloom.shader" />
-     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\EarthSimplePlanets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
  <Reference Include="UnityEngine.UI">
@@ -228,8 +220,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{02205AF3-B306-2233-F81C-2CAB12617B34}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{71BB31A5-3C04-0DD9-AA68-C8B74A64785E}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

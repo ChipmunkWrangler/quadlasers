@@ -54,7 +54,7 @@ PlayerSettings:
   tizenShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
   displayResolutionDialog: 1
-  iosAllowHTTPDownload: 1
+  iosAllowHTTPDownload: 0
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
   allowedAutorotateToLandscapeRight: 1
@@ -152,10 +152,10 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.CrazyChipmunk.QuadLasers
+    Android: com.crazy_chipmunk.quadlasers
     Standalone: unity.Crazy Chipmunk.QuadLasers
     Tizen: com.CrazyChipmunk.QuadLasers
-    iOS: com.CrazyChipmunk.QuadLasers
+    iOS: com.crazy-chipmunk.quadlasers
     tvOS: com.CrazyChipmunk.QuadLasers
   buildNumber:
     iOS: 1
@@ -233,7 +233,7 @@ PlayerSettings:
   metalEditorSupport: 0
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 1
-  appleDeveloperTeamID: "Eva Van Daeke\xDFHunt"
+  appleDeveloperTeamID: 33Q6G9YAN6
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 1
@@ -242,7 +242,7 @@ PlayerSettings:
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
-  AndroidTVCompatibility: 1
+  AndroidTVCompatibility: 0
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
@@ -257,7 +257,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: f152b3c72781545ce82bb6f6f3f93ab3, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
