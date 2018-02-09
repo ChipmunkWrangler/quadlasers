@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameOverOnContact : MonoBehaviour {
 	[SerializeField] UnityEngine.UI.Text gameOverText;
 	[SerializeField] UnityEngine.UI.Text tapToContinueText;
-
+	[SerializeField] GameObject hideOnGameOver;
+	[SerializeField] GameObject finalExplosion;
 	bool isGameOver;
 
 	void Start () {
@@ -23,6 +24,12 @@ public class GameOverOnContact : MonoBehaviour {
 		}
 		if (tapToContinueText != null) {
 			tapToContinueText.CrossFadeAlpha( 1.0f, 5.0f, true );
+		}
+		if (hideOnGameOver != null) {
+			hideOnGameOver.SetActive( false );
+		}
+		if (finalExplosion != null) {
+			finalExplosion.SetActive( true );
 		}
 		Time.timeScale = 0;
 		isGameOver = true;
