@@ -1,5 +1,5 @@
-﻿#if UNITY_IPHONE
-#define COMPASS_ROTATION
+﻿#if UNITY_IOS || UNITY_ANDROID
+//#define COMPASS_ROTATION
 #endif
 
 using UnityEngine;
@@ -7,42 +7,42 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 
-public class Turret : MonoBehaviour
-{
-//	public GameObject shot;
-//	public Transform shotSpawn;
+public class Turret : MonoBehaviour {
+	//	public GameObject shot;
+	//	public Transform shotSpawn;
 	// COMPASS_ROTATION
 	public float MAX_ACCEPTABLE_HEADING_INACCURACY;
 	public GameObject[] subscribers;
 	public Text debugText_accuracy;
 	public Text debugText_heading;
 	// MOUSE ROTATION
-	public float speed; 
+	public float speed;
 	#if COMPASS_ROTATION
 	private bool wasCalibrated;
-	#else
+	
+
+
+#else
 	private Rigidbody rb;
 	#endif
 
-	void Start ()
-	{
+	void Start () {
 		#if COMPASS_ROTATION
 			Input.compass.enabled = true;
 			wasCalibrated = true;
 		print("Compass");
 		#else
-			rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody>();
 		#endif
 	}
 
-	void FixedUpdate ()
-	{
+	void FixedUpdate () {
 #if COMPASS_ROTATION
 		transform.rotation = GetCompassRotation();
 #else
-		Vector3 rotationVelocity = GetMouseInput ();
-		rb.AddTorque(transform.right * rotationVelocity.x);	
-		rb.AddTorque(transform.up * rotationVelocity.y);
+		Vector3 rotationVelocity = GetMouseInput();
+		rb.AddTorque( transform.right * rotationVelocity.x );	
+		rb.AddTorque( transform.up * rotationVelocity.y );
 #endif
 	}
 
@@ -71,9 +71,12 @@ public class Turret : MonoBehaviour
 
 	}
 
-	#else
-	Vector3 GetMouseInput() {
-	return new Vector3 (-Input.GetAxis ("Mouse Y"), Input.GetAxis ("Mouse X"), 0.0f) * speed;
+	
+
+
+#else
+	Vector3 GetMouseInput () {
+		return new Vector3( -Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0.0f ) * speed;
 	}
 	#endif
 }
