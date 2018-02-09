@@ -51,7 +51,7 @@ public class Mover : MonoBehaviour {
 	void Update () {
 		if (isOrbiting) {
 			transform.RotateAround( orbitCentre, axis, speed * Time.deltaTime );
-			Debug.Log( transform.position.magnitude );
+//			Debug.Log( transform.position.magnitude );
 		}
 	}
 
