@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 2
   maxSpeed: 10
-  approachSpeedFactor: 0.1
+  approachSpeed: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

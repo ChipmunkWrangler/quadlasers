@@ -4,7 +4,7 @@ using System.Collections;
 public class Mover : MonoBehaviour {
 	public float minSpeed;
 	public float maxSpeed;
-	[SerializeField] float approachSpeedFactor;
+	[SerializeField] float approachSpeed;
 
 	Vector3 orbitCentre;
 	Vector3 axis;
@@ -22,7 +22,7 @@ public class Mover : MonoBehaviour {
 	// through your field of view, which is the good stuff.
 	void MoveTowards (Vector3 tgt) {
 		Vector3 fwd = (tgt - transform.position).normalized;
-		GetComponent<Rigidbody>().velocity = fwd * speed * approachSpeedFactor;
+		GetComponent<Rigidbody>().velocity = fwd * approachSpeed;
 	}
 
 
