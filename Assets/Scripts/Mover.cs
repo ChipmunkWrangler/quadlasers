@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class Mover : MonoBehaviour {
-	public float minSecsPerOrbit;
-	public float maxSecsPerOrbit;
+	public float minOrbitSpeedAtBaseDistance;
+	// speed up as you get closer, but stop speeding up at base distance
+	public float maxOrbitSpeedAtBaseDistance;
 	[SerializeField] float approachSpeedAtBaseDistance;
+	// slow down as you get closer
 	[SerializeField] float baseDistance;
 
 	Vector3 orbitCentre;
-	float secsPerOrbit;
+	float orbitSpeedAtBaseDistance;
 	bool isOrbiting;
 
 
@@ -21,26 +23,29 @@ public class Mover : MonoBehaviour {
 	// This will involve more visual tracking of asteroids that are moving sideways
 	// through your field of view, which is the good stuff.
 	void MoveTowards (Vector3 dir, float dist) {
-		GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance * dist / baseDistance;
+		float speedMultiplier = dist / baseDistance;
+		GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance;// * speedMultiplier;
 	}
 
 
 	void OrbitAround (Transform tgt) {
-//		transform.SetParent( tgt );
 		orbitCentre = tgt.position;
-		secsPerOrbit = Random.Range( minSecsPerOrbit, maxSecsPerOrbit );
+		orbitSpeedAtBaseDistance = Random.Range( minOrbitSpeedAtBaseDistance, maxOrbitSpeedAtBaseDistance );
 		isOrbiting = true;
 
 	}
 
 	void Update () {
 		if (isOrbiting) {
-			Vector3 fwd = (orbitCentre - transform.position);
-			float r = fwd.magnitude;
-			float circumferance = Mathf.PI * r * 2.0f;
-			float v = circumferance / secsPerOrbit;
-			transform.RotateAround( orbitCentre, Vector3.up, v * Time.deltaTime );
-			MoveTowards( fwd.normalized, r );
+			Vector3 toCentre = (orbitCentre - transform.position);
+			float dist = toCentre.magnitude;
+			float speedMultiplier = Mathf.Min( 1.0f, baseDistance / dist );
+			transform.RotateAround( orbitCentre, Vector3.up, orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime );
+			// 10: You can hold the fire down and stay in place
+			// 20 is reasonable, but you have to track
+			// 80 you have to wait until they get closer, like 30
+			// 120 you can still hit when it gets close
+			MoveTowards( toCentre.normalized, dist );
 		}
 	}
 
