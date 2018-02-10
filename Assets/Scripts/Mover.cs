@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class Mover : MonoBehaviour {
-	public float minSpeed;
-	public float maxSpeed;
-	[SerializeField] float approachSpeed;
+	public float minSecsPerOrbit;
+	public float maxSecsPerOrbit;
+	[SerializeField] float approachSpeedAtBaseDistance;
+	[SerializeField] float baseDistance;
 
 	Vector3 orbitCentre;
-	float speed;
+	float secsPerOrbit;
 	bool isOrbiting;
 
 
@@ -19,24 +20,27 @@ public class Mover : MonoBehaviour {
 	// So instead, we orbit the player, not necessarily stably
 	// This will involve more visual tracking of asteroids that are moving sideways
 	// through your field of view, which is the good stuff.
-	void MoveTowards (Vector3 tgt) {
-		Vector3 fwd = (tgt - transform.position).normalized;
-		GetComponent<Rigidbody>().velocity = fwd * approachSpeed;
+	void MoveTowards (Vector3 dir, float dist) {
+		GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance * dist / baseDistance;
 	}
 
 
 	void OrbitAround (Transform tgt) {
 //		transform.SetParent( tgt );
 		orbitCentre = tgt.position;
-		speed = Random.Range( minSpeed, maxSpeed );
+		secsPerOrbit = Random.Range( minSecsPerOrbit, maxSecsPerOrbit );
 		isOrbiting = true;
 
 	}
 
 	void Update () {
 		if (isOrbiting) {
-			transform.RotateAround( orbitCentre, Vector3.up, speed * Time.deltaTime );
-			MoveTowards( orbitCentre );
+			Vector3 fwd = (orbitCentre - transform.position);
+			float r = fwd.magnitude;
+			float circumferance = Mathf.PI * r * 2.0f;
+			float v = circumferance / secsPerOrbit;
+			transform.RotateAround( orbitCentre, Vector3.up, v * Time.deltaTime );
+			MoveTowards( fwd.normalized, r );
 		}
 	}
 
