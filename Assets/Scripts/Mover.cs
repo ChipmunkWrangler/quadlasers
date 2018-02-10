@@ -24,7 +24,7 @@ public class Mover : MonoBehaviour {
 	// through your field of view, which is the good stuff.
 	void MoveTowards (Vector3 dir, float dist) {
 		float speedMultiplier = dist / baseDistance;
-		GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance;// * speedMultiplier;
+		GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance * speedMultiplier;
 	}
 
 

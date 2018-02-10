@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minOrbitSpeedAtBaseDistance: 60
   maxOrbitSpeedAtBaseDistance: 90
-  approachSpeedAtBaseDistance: 2
+  approachSpeedAtBaseDistance: 1.7
   baseDistance: 20
 --- !u!1001 &100100000
 Prefab:

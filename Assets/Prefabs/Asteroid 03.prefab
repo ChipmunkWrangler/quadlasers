@@ -156,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7850f24249e4056b2189de03ae584c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minOrbitSpeedAtBaseDistance: 100
+  minOrbitSpeedAtBaseDistance: 80
   maxOrbitSpeedAtBaseDistance: 150
-  approachSpeedAtBaseDistance: 2
+  approachSpeedAtBaseDistance: 1
   baseDistance: 20
 --- !u!1001 &100100000
 Prefab:
