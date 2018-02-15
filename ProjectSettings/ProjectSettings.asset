@@ -158,7 +158,7 @@ PlayerSettings:
     iOS: com.crazy-chipmunk.quadlasers
     tvOS: com.CrazyChipmunk.QuadLasers
   buildNumber:
-    iOS: 2
+    iOS: 3
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
@@ -619,7 +619,7 @@ PlayerSettings:
     iOS: 1
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
-  scriptingRuntimeVersion: 0
+  scriptingRuntimeVersion: 1
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
