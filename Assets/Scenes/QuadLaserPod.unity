@@ -636,6 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111306691}
   - component: {fileID: 111306690}
+  - component: {fileID: 111306693}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -679,6 +680,21 @@ Transform:
   m_Father: {fileID: 783041995}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111306693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 111306689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f4eb71c3f9f418bbb34b9c9ef2dc73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverText: {fileID: 1039214927}
+  tapToContinueText: {fileID: 302044553}
+  hideOnGameOver: {fileID: 1464133611}
+  finalExplosion: {fileID: 83670655}
 --- !u!1 &162011322
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,13 +858,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 271546273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3734d2151e4c94d2f84d1d8edeb378a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8caaa942fe44ae187fd6da9d187b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 1039214927}
-  tapToContinueText: {fileID: 302044553}
-  hideOnGameOver: {fileID: 1464133611}
-  finalExplosion: {fileID: 83670655}
 --- !u!135 &271546276
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1396,8 +1408,6 @@ GameObject:
   m_Component:
   - component: {fileID: 703811254}
   - component: {fileID: 703811253}
-  - component: {fileID: 703811252}
-  - component: {fileID: 703811251}
   - component: {fileID: 703811250}
   - component: {fileID: 703811255}
   m_Layer: 0
@@ -1409,20 +1419,6 @@ GameObject:
   m_IsActive: 1
 --- !u!81 &703811250
 AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 703811249}
-  m_Enabled: 1
---- !u!124 &703811251
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 703811249}
-  m_Enabled: 1
---- !u!92 &703811252
-Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}

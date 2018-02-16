@@ -299,7 +299,7 @@
     <Compile Include="Assets\Scripts\Done_DestroyByBoundary.cs" />
     <Compile Include="Assets\Scripts\Done_EvasiveManeuver.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\GameOverOnContact.cs" />
+    <Compile Include="Assets\Scripts\GameOverEventPublisher.cs" />
     <Compile Include="Assets\Scripts\LaserCannonRecoil.cs" />
     <Compile Include="Assets\Scripts\LaserCannonSound.cs" />
     <Compile Include="Assets\Scripts\LaserHitTest.cs" />
@@ -309,6 +309,8 @@
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\SharedLibrary.cs" />
     <Compile Include="Assets\Scripts\ShowCompassAccuracy.cs" />
+    <Compile Include="Assets\Scripts\ShowGameOverText.cs" />
+    <Compile Include="Assets\Scripts\TurnOffSoundOnGameOver.cs" />
     <Compile Include="Assets\Scripts\Turret.cs" />
     <Compile Include="Assets\xARM\Classes\xARMClasses.cs" />
     <Compile Include="Assets\xARM\Components\xARMDelegatesExample.cs" />
