@@ -5,7 +5,7 @@ public class LaserCannonRecoil : MonoBehaviour {
 	public float recoilDuration;
 	public float returnDuration;
 	public float recoilOffset;
-	[SerializeField] Vector3 viewportPos;
+    [SerializeField] Vector3 viewportPos = Vector3.zero;
 
 	private Vector3 originalPos;
 	private Vector3 recoilledPos;
