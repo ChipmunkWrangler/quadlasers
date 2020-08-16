@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\RandomRotator.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\SharedLibrary.cs" />
-    <Compile Include="Assets\Scripts\ShowCompassAccuracy.cs" />
     <Compile Include="Assets\Scripts\ShowGameOverText.cs" />
     <Compile Include="Assets\Scripts\TurnOffSoundOnGameOver.cs" />
     <Compile Include="Assets\Scripts\Turret.cs" />
