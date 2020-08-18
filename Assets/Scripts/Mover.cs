@@ -13,14 +13,25 @@ public class Mover : MonoBehaviour
     bool isOrbiting;
 
 
-    // the problem with moving directly towards the player is that the game
-    // is then about turning to face the right direction, which is arbitrary in
-    // 3d with no minimap, and with a minimap the game would be about staring at
-    // the minimap. Sound cues, like in Serious Sam, would work, but not well
-    // suited to mobile without headphones.
-    // So instead, we orbit the player, not necessarily stably
-    // This will involve more visual tracking of asteroids that are moving sideways
-    // through your field of view, which is the good stuff.
+    // The fun, starwarsy part is trying to track a target moving sideways through your field of view.
+    // However, we have a choice between:
+    //    1. Targets that automatically pass through your crosshairs (e.g. spiralling all in the same plane).
+    //        These make it possible to stay in one place and hold down the fire button, which is boring.
+    //        TODO Maybe it is enough to make them faster?
+    //    2. Targets that don't. This implies either
+    //        a) You have a way of figuring out where they are
+    //            Minimap: inelegant, hard to do for a sphere
+    //            TODO Sound: need headphones (not always available and antisocial)
+    //            TODO Multiplayer: the other player tells you "check your six!"
+    //        b) You don't. The game is then about turning to face the right direction, which is arbitrary and dumb.
+    //            However, if the targets come by more than once in a regular pattern, you might develop a feeling
+    // TODO Targets that spiral inwards on various great circles. You can see them go by at a distance.
+    // TODO Targets that move directly towards the player 
+    // TODO Targets that try to strafe the player
+    //    Should probably only be able to damage you briefly and/or when close, otherwise feels unfair
+    //    But the corresponding benefit is you get more than one chance to hit them
+    //    And they move laterally, but not (necessarily) predictably
+    //        They could try to avoid your shots, in fact
     void MoveTowards(Vector3 dir, float dist)
     {
         float speedMultiplier = dist / baseDistance;
