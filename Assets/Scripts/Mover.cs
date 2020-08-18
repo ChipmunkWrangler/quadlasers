@@ -49,10 +49,10 @@ public class Mover : MonoBehaviour
     void Update()
     {
         if (!isOrbiting) return;
-        Vector3 toCentre = (orbitCentre - transform.position);
-        float dist = toCentre.magnitude;
-        float speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
         transform.RotateAround(orbitCentre, Vector3.up, orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime);
+        var toCentre = (orbitCentre - transform.position);
+        var dist = toCentre.magnitude;
+        var speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
         // 10: You can hold the fire down and stay in place
         // 20 is reasonable, but you have to track
         // 80 you have to wait until they get closer, like 30
