@@ -8,11 +8,10 @@ public class Mover : MonoBehaviour
     [SerializeField] float approachSpeedAtBaseDistance = 0;  // slow down as you get closer
     [SerializeField] float baseDistance = 0;
 
-    Vector3 orbitCentre;
-    float orbitSpeedAtBaseDistance;
-    bool isOrbiting;
-
-
+    private Vector3 orbitCentre;
+    private float orbitSpeedAtBaseDistance;
+    private bool isOrbiting;
+    private int orbitSignMultiplier;
     // The fun, starwarsy part is trying to track a target moving sideways through your field of view.
     // However, we have a choice between:
     //    1. Targets that automatically pass through your crosshairs (e.g. spiralling all in the same plane).
