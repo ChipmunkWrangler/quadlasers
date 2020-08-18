@@ -38,18 +38,16 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        if (isOrbiting)
-        {
-            Vector3 toCentre = (orbitCentre - transform.position);
-            float dist = toCentre.magnitude;
-            float speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
-            transform.RotateAround(orbitCentre, Vector3.up, orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime);
-            // 10: You can hold the fire down and stay in place
-            // 20 is reasonable, but you have to track
-            // 80 you have to wait until they get closer, like 30
-            // 120 you can still hit when it gets close
-            MoveTowards(toCentre.normalized, dist);
-        }
+        if (!isOrbiting) return;
+        Vector3 toCentre = (orbitCentre - transform.position);
+        float dist = toCentre.magnitude;
+        float speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
+        transform.RotateAround(orbitCentre, Vector3.up, orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime);
+        // 10: You can hold the fire down and stay in place
+        // 20 is reasonable, but you have to track
+        // 80 you have to wait until they get closer, like 30
+        // 120 you can still hit when it gets close
+        MoveTowards(toCentre.normalized, dist);
     }
 
 }
