@@ -555,7 +555,7 @@ MonoBehaviour:
   minPerWave: 5
   maxPerWave: 10
   initialWaitInSeconds: 1
-  waveGapInSeconds: 5
+  waveGapInSeconds: 20
   spawnGapInSeconds: 1
   subscribers:
   - {fileID: 393377274}

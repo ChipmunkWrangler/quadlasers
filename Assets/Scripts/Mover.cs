@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Assertions;
 
 public class Mover : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Mover : MonoBehaviour
     private Vector3 orbitCentre;
     private float orbitSpeedAtBaseDistance;
     private bool isOrbiting;
-    private int orbitSignMultiplier;
+    private Vector3 orbitAxis;
     // The fun, starwarsy part is trying to track a target moving sideways through your field of view.
     // However, we have a choice between:
     //    1. Targets that automatically pass through your crosshairs (e.g. spiralling all in the same plane).
@@ -37,22 +38,39 @@ public class Mover : MonoBehaviour
         GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance * speedMultiplier;
     }
 
-
     void OrbitAround(Transform tgt)
     {
         orbitCentre = tgt.position;
         orbitSpeedAtBaseDistance = Random.Range(minOrbitSpeedAtBaseDistance, maxOrbitSpeedAtBaseDistance);
         isOrbiting = true;
-
+        orbitAxis = getRandomPerpendicularTo(getVectorToCentre());
     }
 
+    Vector3 getVectorToCentre()
+    {
+        return orbitCentre - transform.position;
+    }
+
+    Vector3 getRandomPerpendicularTo(Vector3 v)
+    {
+        var perpendicular = Vector3.zero;
+        while (perpendicular == Vector3.zero)
+        {
+            var w = Random.onUnitSphere;
+            perpendicular = Vector3.Cross(v, w );
+        }
+        return perpendicular;
+    }
+    
     void Update()
     {
+        // TODO Try replacing this with gravity plus an initial momentum
         if (!isOrbiting) return;
-        transform.RotateAround(orbitCentre, Vector3.up, orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime);
-        var toCentre = (orbitCentre - transform.position);
+        var toCentre = getVectorToCentre();
         var dist = toCentre.magnitude;
         var speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
+        var angleToMove = orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime;
+        transform.RotateAround(orbitCentre, orbitAxis, angleToMove);
         // 10: You can hold the fire down and stay in place
         // 20 is reasonable, but you have to track
         // 80 you have to wait until they get closer, like 30
