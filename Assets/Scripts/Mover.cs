@@ -25,8 +25,9 @@ public class Mover : MonoBehaviour
     //            TODO Multiplayer: the other player tells you "check your six!"
     //        b) You don't. The game is then about turning to face the right direction, which is arbitrary and dumb.
     //            However, if the targets come by more than once in a regular pattern, you might develop a feeling
-    // TODO Targets that spiral inwards on various great circles. You can see them go by at a distance.
+    // Currently, we use targets that spiral inwards on various great circles. You can see them go by at a distance.
     // TODO Targets that move directly towards the player 
+    // TODO Targets in the y=0 plane, but at varying heights
     // TODO Targets that try to strafe the player
     //    Should probably only be able to damage you briefly and/or when close, otherwise feels unfair
     //    But the corresponding benefit is you get more than one chance to hit them
