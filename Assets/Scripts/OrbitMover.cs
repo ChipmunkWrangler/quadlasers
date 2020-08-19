@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Assertions;
 
-public class Mover : MonoBehaviour
+public class OrbitMover : MonoBehaviour
 {
     public float minOrbitSpeedAtBaseDistance;   // speed up as you get closer, but stop speeding up at base distance
     public float maxOrbitSpeedAtBaseDistance;
@@ -29,6 +29,10 @@ public class Mover : MonoBehaviour
     // I tried targets in the horizontal plane, but at varying heights. This is less sickening.
     // TODO Targets that move directly towards the player 
     // TODO Targets that try to strafe the player
+    //     Why don't they just attack from the back?
+    //        Maybe they do, but not constantly, because they have to charge, turn, and charge back
+    //        Maybe you can only shoot in one hemisphere, and P2 does the other half
+    // TODO Targets that avoid the player's crosshairs but have limited maneuverability
     //    Should probably only be able to damage you briefly and/or when close, otherwise feels unfair
     //    But the corresponding benefit is you get more than one chance to hit them
     //    And they move laterally, but not (necessarily) predictably
