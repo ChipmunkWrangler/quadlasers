@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public float initialWaitInSeconds;
     [SerializeField] public float waveGapInSeconds;
     [SerializeField] public float spawnGapInSeconds;
+    [SerializeField] public GameObject backstop;
     [SerializeField] public GameObject[] subscribers;
     private int orbitMode = -1;
 
@@ -54,5 +55,6 @@ public class GameController : MonoBehaviour
     public void OrbitModeUpdated(int orbitMode)
     {
         this.orbitMode = orbitMode;
+        backstop.SetActive(orbitMode > 2);
     }
 }

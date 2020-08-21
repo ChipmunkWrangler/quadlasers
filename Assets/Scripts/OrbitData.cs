@@ -10,6 +10,9 @@ public class OrbitData
     // mode 0: horizontal circles, y = 0
     // mode 1: horizontal circles, y is limited to +/- 45 degrees
     // mode 2: random great circles
+    // mode 3: as mode 0, but backstop
+    // mode 4: as mode 1, but backstop
+    // mode 5: as mode 2, but backstop
     // mode 3: TODO vertical circles
     public OrbitData(float spawnDistance, int mode)
     {
@@ -30,12 +33,15 @@ public class OrbitData
         switch (mode)
         {
             case 0:
+            case 3:
                 unitPos = GetHorizontalCirclePosition(0);
                 break;
             case 1:
+            case 4:
                 unitPos = GetHorizontalCirclePosition(Random.Range(-1f, 1f));
                 break;
             case 2:
+            case 5:
                 unitPos = Random.onUnitSphere;
                 break;
             default:
