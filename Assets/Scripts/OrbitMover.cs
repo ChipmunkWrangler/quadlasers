@@ -4,8 +4,8 @@ public class OrbitMover : MonoBehaviour
 {
     public float minOrbitSpeedAtBaseDistance;   // speed up as you get closer, but stop speeding up at base distance
     public float maxOrbitSpeedAtBaseDistance;
-    [SerializeField] private float approachSpeedAtBaseDistance;  // slow down as you get closer
-    [SerializeField] private float baseDistance;
+    [SerializeField] public float approachSpeedAtBaseDistance;  // slow down as you get closer
+    [SerializeField] public float baseDistance;
 
     private Vector3 orbitCentre;
     private float orbitSpeedAtBaseDistance;

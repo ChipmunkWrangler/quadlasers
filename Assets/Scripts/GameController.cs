@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameObject[] hazards;
-    [SerializeField] private float spawnDistance;
-    [SerializeField] private int minPerWave, maxPerWave;
-    [SerializeField] private float initialWaitInSeconds;
-    [SerializeField] private float waveGapInSeconds;
-    [SerializeField] private float spawnGapInSeconds;
-    [SerializeField] private GameObject[] subscribers;
+    [SerializeField] public GameObject[] hazards;
+    [SerializeField] public float spawnDistance;
+    [SerializeField] public int minPerWave, maxPerWave;
+    [SerializeField] public float initialWaitInSeconds;
+    [SerializeField] public float waveGapInSeconds;
+    [SerializeField] public float spawnGapInSeconds;
+    [SerializeField] public GameObject[] subscribers;
 
     // Use this for initialization
     private void Start()
