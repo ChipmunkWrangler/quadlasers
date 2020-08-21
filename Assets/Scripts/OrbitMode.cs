@@ -6,7 +6,7 @@ public class OrbitMode : MonoBehaviour
 {
     [SerializeField] public GameObject[] subscribers;
     private const string Key = "orbitMode";
-    private const int NumOrbitModes = 2;
+    private const int NumOrbitModes = 3;
 
     public void IncrementOrbitMode()
     {

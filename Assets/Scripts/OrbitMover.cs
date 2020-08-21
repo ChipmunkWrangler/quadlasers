@@ -19,8 +19,8 @@ public class OrbitMover : MonoBehaviour
     //    2. Targets that don't. This implies either
     //        a) You have a way of figuring out where they are
     //            Minimap: inelegant, hard to do for a sphere
-    //            TODO Sound: need headphones (not always available and antisocial)
-    //            TODO Multiplayer: the other player tells you "check your six!"
+    //            Sound: need headphones (not always available and antisocial), and doesn't actually help much, especially in vertical orientation
+    //            TODO Multiplayer: the other player tells you "check your six!" Try simulating with AI. Only works if there are few targets that can be described simply
     //        b) You don't. The game is then about turning to face the right direction, which is arbitrary and dumb.
     //            However, if the targets come by more than once in a regular pattern, you might develop a feeling
     // I tried targets that spiral inwards on random great circles, but it made me seasick.
@@ -36,6 +36,7 @@ public class OrbitMover : MonoBehaviour
     //    But the corresponding benefit is you get more than one chance to hit them
     //    And they move laterally, but not (necessarily) predictably
     //        They could try to avoid your shots, in fact
+    // TODO 2d (y=0) targets that move away from crosshairs with limited acceleration (so you can spin fast to overtake them, and it takes them a moment to brake and run the other way)
     private void MoveTowards(Vector3 dir, float dist)
     {
         float speedMultiplier = dist / baseDistance;

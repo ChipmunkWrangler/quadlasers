@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] public GameObject[] hazards;
-    [SerializeField] public OrbitAxis orbitAxis;
     [SerializeField] public float spawnDistance;
     [SerializeField] public int minPerWave, maxPerWave;
     [SerializeField] public float initialWaitInSeconds;
     [SerializeField] public float waveGapInSeconds;
     [SerializeField] public float spawnGapInSeconds;
     [SerializeField] public GameObject[] subscribers;
+    private int orbitMode = -1;
 
     // Use this for initialization
     private void Start()
@@ -41,11 +41,9 @@ public class GameController : MonoBehaviour
 
     private void SpawnAsteroid()
     {
-        var spawnPosition = Random.onUnitSphere * spawnDistance;
+        var orbitData = new OrbitData(spawnDistance, orbitMode);
         var hazardPrototype = hazards[Random.Range(0, hazards.Length)];
-        var asteroid = Instantiate(hazardPrototype, spawnPosition, Quaternion.identity);
-        var orbitCentre = Camera.main.transform.position;
-        var orbitData = new OrbitData(orbitCentre, orbitAxis.GetOrbitAxis(orbitCentre - spawnPosition));
+        var asteroid = Instantiate(hazardPrototype, orbitData.SpawnPosition, Quaternion.identity);
         asteroid.SendMessage("SetController", gameObject);
         asteroid.SendMessage("OrbitAround", orbitData);
     }
@@ -53,5 +51,9 @@ public class GameController : MonoBehaviour
     private void ObjectDestroyed(GameObject objectDestroyed)
     {
         SharedLibrary.InformSubscribers(subscribers, "ObjectDestroyed", objectDestroyed);
+    }
+    public void OrbitModeUpdated(int orbitMode)
+    {
+        this.orbitMode = orbitMode;
     }
 }
