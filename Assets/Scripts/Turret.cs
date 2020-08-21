@@ -31,8 +31,8 @@ public class Turret : MonoBehaviour {
 		rb.AddTorque( transform.right * rotationVelocity.x );	
 		rb.AddTorque( transform.up * rotationVelocity.y );
 	}
-	
-	Vector3 GetMouseInput () {
+
+	private Vector3 GetMouseInput () {
 		return new Vector3( -Input.GetAxis( "Mouse Y" ), Input.GetAxis( "Mouse X" ), 0.0f ) * mouseRotationSpeed;
 	}
 #endif

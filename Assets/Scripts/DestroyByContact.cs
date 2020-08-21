@@ -4,11 +4,11 @@ public class DestroyByContact : MonoBehaviour {
 	public GameObject explosion;
 	private GameObject controller;
 
-	void SetController (GameObject _controller) {
+	private void SetController (GameObject _controller) {
 		controller = _controller;
 	}
 
-	void OnHit () {
+	private void OnHit () {
 		if (explosion != null) {
 			GameObject o = Instantiate( explosion, transform.position, transform.rotation );
 			AudioSource audioSource = o.GetComponent<AudioSource>();

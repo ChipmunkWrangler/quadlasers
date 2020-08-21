@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class LaserCannonSound : MonoBehaviour {
-	AudioSource audioSource;
+	private AudioSource audioSource;
 
-	void Start () {
+	private void Start () {
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	void FireAt () {
+	private void FireAt () {
 		if (audioSource != null) {
 			audioSource.Play();
 		}

@@ -6,16 +6,16 @@ public class LaserShowBeam : MonoBehaviour {
 
 	private LineRenderer line;
 
-	void Start () {
+	private void Start () {
 		line = gameObject.GetComponent<LineRenderer> ();
 	}
 
-	void FireAt(Vector3 endpoint) {
+	private void FireAt(Vector3 endpoint) {
 		StopCoroutine ("ShowBeam");
 		StartCoroutine ("ShowBeam", endpoint);
 	}
 
-	IEnumerator	ShowBeam (Vector3 endPoint) {
+	private IEnumerator	ShowBeam (Vector3 endPoint) {
 		line.enabled = true;
 		line.SetPosition (1, transform.InverseTransformPoint (endPoint));
 		float endTime = Time.time + fireDuration;

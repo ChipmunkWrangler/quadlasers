@@ -5,9 +5,9 @@ public class GameOverEventPublisher : MonoBehaviour
     public delegate void GameOverAction();
     public static event GameOverAction OnGameOver;
 
-    bool isGameOver;
+    private bool isGameOver;
 
-    void OnTriggerEnter()
+    private void OnTriggerEnter()
     {
         if (!isGameOver)
         {

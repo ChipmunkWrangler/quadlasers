@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.Assertions;
 
 public class OrbitMover : MonoBehaviour
 {
     public float minOrbitSpeedAtBaseDistance;   // speed up as you get closer, but stop speeding up at base distance
     public float maxOrbitSpeedAtBaseDistance;
-    [SerializeField] float approachSpeedAtBaseDistance = 0;  // slow down as you get closer
-    [SerializeField] float baseDistance = 0;
+    [SerializeField] private float approachSpeedAtBaseDistance;  // slow down as you get closer
+    [SerializeField] private float baseDistance;
 
     private Vector3 orbitCentre;
     private float orbitSpeedAtBaseDistance;
@@ -37,13 +35,13 @@ public class OrbitMover : MonoBehaviour
     //    But the corresponding benefit is you get more than one chance to hit them
     //    And they move laterally, but not (necessarily) predictably
     //        They could try to avoid your shots, in fact
-    void MoveTowards(Vector3 dir, float dist)
+    private void MoveTowards(Vector3 dir, float dist)
     {
         float speedMultiplier = dist / baseDistance;
         GetComponent<Rigidbody>().velocity = dir * approachSpeedAtBaseDistance * speedMultiplier;
     }
 
-    void OrbitAround(Transform tgt)
+    private void OrbitAround(OrbitData orbitData)
     {
         orbitCentre = tgt.position;
         orbitSpeedAtBaseDistance = Random.Range(minOrbitSpeedAtBaseDistance, maxOrbitSpeedAtBaseDistance);
@@ -52,7 +50,7 @@ public class OrbitMover : MonoBehaviour
         //For random great circles, use orbitAxis = getRandomPerpendicularTo(getVectorToCentre());
     }
 
-    Vector3 getVectorToCentre()
+    private Vector3 getVectorToCentre()
     {
         return orbitCentre - transform.position;
     }
@@ -68,7 +66,7 @@ public class OrbitMover : MonoBehaviour
         return perpendicular;
     }
     
-    void Update()
+    private void Update()
     {
         // TODO Try replacing this with gravity plus an initial momentum
         if (!isOrbiting) return;

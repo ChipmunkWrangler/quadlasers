@@ -11,7 +11,7 @@ public class LaserHitTest : MonoBehaviour {
 	private bool isLowerActive;
 	private float nextFireTime;
 
-	void Update () {
+	private void Update () {
 		if (Input.GetButton("Fire1") && Time.time > nextFireTime)
 		{
 			Fire (isLowerActive ? lowerViews : upperViews);
@@ -20,7 +20,7 @@ public class LaserHitTest : MonoBehaviour {
 		}
 	}
 
-	void Fire (GameObject[] views) {
+	private void Fire (GameObject[] views) {
 		Ray ray = new Ray(transform.position, transform.forward); 
 		Vector3 endPoint = ray.GetPoint (maxRange);
 		RaycastHit hit;

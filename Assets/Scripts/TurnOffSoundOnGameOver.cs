@@ -2,17 +2,17 @@
 
 public class TurnOffSoundOnGameOver : MonoBehaviour
 {
-    void OnEnable()
+    private void OnEnable()
     {
         GameOverEventPublisher.OnGameOver += TurnOffSound;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         GameOverEventPublisher.OnGameOver -= TurnOffSound;
     }
 
-    void TurnOffSound()
+    private void TurnOffSound()
     {
         GetComponent<AudioSource>()?.Stop();
     }

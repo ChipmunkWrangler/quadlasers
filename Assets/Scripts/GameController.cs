@@ -1,24 +1,25 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using AssemblyCSharp;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject[] hazards;
-    [SerializeField] float spawnDistance;
-    [SerializeField] int minPerWave, maxPerWave;
-    [SerializeField] float initialWaitInSeconds;
-    [SerializeField] float waveGapInSeconds;
-    [SerializeField] float spawnGapInSeconds;
-    [SerializeField] GameObject[] subscribers;
+    [SerializeField] private GameObject[] hazards;
+    [SerializeField] private float spawnDistance;
+    [SerializeField] private int minPerWave, maxPerWave;
+    [SerializeField] private float initialWaitInSeconds;
+    [SerializeField] private float waveGapInSeconds;
+    [SerializeField] private float spawnGapInSeconds;
+    [SerializeField] private GameObject[] subscribers;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(SpawnWaves());
     }
 
-    IEnumerator SpawnWaves()
+    private IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(initialWaitInSeconds);
         while (true)
@@ -28,7 +29,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWave(int numToSpawn)
+    private IEnumerator SpawnWave(int numToSpawn)
     {
         for (int i = 0; i < numToSpawn; ++i)
         {
@@ -37,7 +38,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void SpawnAsteroid()
+    private void SpawnAsteroid()
     {
         var spawnPosition = Random.onUnitSphere * spawnDistance;
         var hazardPrototype = hazards[Random.Range(0, hazards.Length)];
@@ -46,8 +47,8 @@ public class GameController : MonoBehaviour
         asteroid.SendMessage("OrbitAround", Camera.main.transform);
     }
 
-    void ObjectDestroyed(GameObject objectDestroyed)
+    private void ObjectDestroyed(GameObject objectDestroyed)
     {
-        AssemblyCSharp.SharedLibrary.InformSubscribers(subscribers, "ObjectDestroyed", objectDestroyed);
+        SharedLibrary.InformSubscribers(subscribers, "ObjectDestroyed", objectDestroyed);
     }
 }

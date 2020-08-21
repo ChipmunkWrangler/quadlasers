@@ -1,38 +1,40 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShowGameOverText : MonoBehaviour {
-    [SerializeField] Text gameOverText;
-    [SerializeField] Text tapToContinueText;
-    [SerializeField] GameObject hideOnGameOver;
-    [SerializeField] GameObject finalExplosion;
+    [SerializeField] private Text gameOverText;
+    [SerializeField] private Text tapToContinueText;
+    [SerializeField] private GameObject hideOnGameOver;
+    [SerializeField] private GameObject finalExplosion;
 
-    bool isReadyToRestart;
-    const float textFadeTime = 1.0f;
-    const float delayBetweenExplosionAndText = 0.5f;
+    private bool isReadyToRestart;
+    private const float textFadeTime = 1.0f;
+    private const float delayBetweenExplosionAndText = 0.5f;
 
-    void Start()
+    private void Start()
     {
         gameOverText.CrossFadeAlpha(0.0f, 0.0f, false);
         tapToContinueText.CrossFadeAlpha(0.0f, 0.0f, false);
 
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         GameOverEventPublisher.OnGameOver += OnGameOver;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         GameOverEventPublisher.OnGameOver -= OnGameOver;
     }
 
-    void OnGameOver() {
+    private void OnGameOver() {
         StartCoroutine(GameOver());
     }
 
-    IEnumerator GameOver()
+    private IEnumerator GameOver()
     {
         Time.timeScale = 0;
         hideOnGameOver?.SetActive(false);
@@ -46,6 +48,11 @@ public class ShowGameOverText : MonoBehaviour {
             gameOverText.CrossFadeAlpha(1.0f, textFadeTime, true);
             yield return new WaitForSecondsRealtime(textFadeTime);
         }
+
+        if (modeButton != null)
+        {
+            modeButton.CrossFadeAlpha(1.0f, textFadeTime, true);
+        }
         if (tapToContinueText != null)
         {
             tapToContinueText.CrossFadeAlpha(1.0f, textFadeTime, true);
@@ -53,13 +60,12 @@ public class ShowGameOverText : MonoBehaviour {
         }
     }
 
-    void Update()
+    public void Restart()
     {
-        if (isReadyToRestart && Input.GetButton("Fire1"))
-        {
-            Time.timeScale = 1.0f;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        }
+        if (!isReadyToRestart) return;
+        Time.timeScale = 1.0f;
+        print("Restart");
+        SceneManager.LoadScene(0);
     }
 
 
