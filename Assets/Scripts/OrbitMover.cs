@@ -24,7 +24,8 @@ public class OrbitMover : MonoBehaviour
     //        b) You don't. The game is then about turning to face the right direction, which is arbitrary and dumb.
     //            However, if the targets come by more than once in a regular pattern, you might develop a feeling
     // I tried targets that spiral inwards on random great circles, but it made me seasick.
-    // I tried targets in the horizontal plane, but at varying heights. This is less sickening.
+    // I tried targets in the horizontal plane, but at varying heights. This is less sickening, but the most effective approach is to face directly up or down and tip slightly... not satisfying
+    // TODO targets that spiral in vertical planes
     // TODO Targets that move directly towards the player 
     // TODO Targets that try to strafe the player
     //     Why don't they just attack from the back?
@@ -43,11 +44,10 @@ public class OrbitMover : MonoBehaviour
 
     private void OrbitAround(OrbitData orbitData)
     {
-        orbitCentre = tgt.position;
+        orbitCentre = orbitData.Midpoint;
         orbitSpeedAtBaseDistance = Random.Range(minOrbitSpeedAtBaseDistance, maxOrbitSpeedAtBaseDistance);
         isOrbiting = true;
-        orbitAxis = Random.value > 0.5 ? Vector3.up : -Vector3.up; // CW or CCW rotation 
-        //For random great circles, use orbitAxis = getRandomPerpendicularTo(getVectorToCentre());
+        orbitAxis = orbitData.Axis;
     }
 
     private Vector3 getVectorToCentre()
@@ -55,17 +55,6 @@ public class OrbitMover : MonoBehaviour
         return orbitCentre - transform.position;
     }
 
-    Vector3 getRandomPerpendicularTo(Vector3 v)
-    {
-        var perpendicular = Vector3.zero;
-        while (perpendicular == Vector3.zero)
-        {
-            var w = Random.onUnitSphere;
-            perpendicular = Vector3.Cross(v, w );
-        }
-        return perpendicular;
-    }
-    
     private void Update()
     {
         // TODO Try replacing this with gravity plus an initial momentum

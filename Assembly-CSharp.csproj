@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DestroyByContact.cs" />
     <Compile Include="Assets\Scripts\DestroyByTime.cs" />
+    <Compile Include="Assets\Scripts\DisplayMode.cs" />
     <Compile Include="Assets\Scripts\Done_DestroyByBoundary.cs" />
     <Compile Include="Assets\Scripts\Done_EvasiveManeuver.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
@@ -78,6 +79,9 @@
     <Compile Include="Assets\Scripts\LaserCannonSound.cs" />
     <Compile Include="Assets\Scripts\LaserHitTest.cs" />
     <Compile Include="Assets\Scripts\LaserShowBeam.cs" />
+    <Compile Include="Assets\Scripts\OrbitAxis.cs" />
+    <Compile Include="Assets\Scripts\OrbitData.cs" />
+    <Compile Include="Assets\Scripts\OrbitMode.cs" />
     <Compile Include="Assets\Scripts\OrbitMover.cs" />
     <Compile Include="Assets\Scripts\RandomRotator.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />

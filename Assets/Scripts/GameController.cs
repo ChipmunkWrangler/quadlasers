@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] public GameObject[] hazards;
+    [SerializeField] public OrbitAxis orbitAxis;
     [SerializeField] public float spawnDistance;
     [SerializeField] public int minPerWave, maxPerWave;
     [SerializeField] public float initialWaitInSeconds;
@@ -42,9 +43,11 @@ public class GameController : MonoBehaviour
     {
         var spawnPosition = Random.onUnitSphere * spawnDistance;
         var hazardPrototype = hazards[Random.Range(0, hazards.Length)];
-        var asteroid = (GameObject)Instantiate(hazardPrototype, spawnPosition, Quaternion.identity);
+        var asteroid = Instantiate(hazardPrototype, spawnPosition, Quaternion.identity);
+        var orbitCentre = Camera.main.transform.position;
+        var orbitData = new OrbitData(orbitCentre, orbitAxis.GetOrbitAxis(orbitCentre - spawnPosition));
         asteroid.SendMessage("SetController", gameObject);
-        asteroid.SendMessage("OrbitAround", Camera.main.transform);
+        asteroid.SendMessage("OrbitAround", orbitData);
     }
 
     private void ObjectDestroyed(GameObject objectDestroyed)

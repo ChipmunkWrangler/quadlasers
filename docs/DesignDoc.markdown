@@ -14,6 +14,8 @@ A game for action-oriented kids (8+) and parents to bond via learning to coordin
 Fun found! After about eight hours.
 
 
+# T Suggestions
+Bonus asteroid that doesn't hit you, and when hit, it shows crosshairs (your crosshairs image is missing)
 # Targets
 Get dizzy spinning in one direction.
 
@@ -36,6 +38,8 @@ Movie firing rate is about 0.7 per battery, so 0.35 between shots... but in othe
 They are actually projectiles, not beams, in the film. Can we make projectiles not suck?
 
 ##Controls
+Add crosshairs again
+Or Add full blown star wars targeting system
  
 ###Movement
 

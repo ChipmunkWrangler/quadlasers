@@ -8,6 +8,7 @@ public class ShowGameOverText : MonoBehaviour {
     [SerializeField] public Text tapToContinueText;
     [SerializeField] public GameObject hideOnGameOver;
     [SerializeField] public GameObject finalExplosion;
+    [SerializeField] public GameObject gameOverPanel;
 
     private bool isReadyToRestart;
     private const float textFadeTime = 1.0f;
@@ -15,9 +16,9 @@ public class ShowGameOverText : MonoBehaviour {
 
     private void Start()
     {
+        gameOverPanel?.SetActive(false);
         gameOverText.CrossFadeAlpha(0.0f, 0.0f, false);
         tapToContinueText.CrossFadeAlpha(0.0f, 0.0f, false);
-
     }
 
     private void OnEnable()
@@ -38,6 +39,7 @@ public class ShowGameOverText : MonoBehaviour {
     {
         Time.timeScale = 0;
         hideOnGameOver?.SetActive(false);
+        gameOverPanel?.SetActive(true);
         if (finalExplosion != null)
         {
             finalExplosion.SetActive(true);
@@ -49,10 +51,6 @@ public class ShowGameOverText : MonoBehaviour {
             yield return new WaitForSecondsRealtime(textFadeTime);
         }
 
-        if (modeButton != null)
-        {
-            modeButton.CrossFadeAlpha(1.0f, textFadeTime, true);
-        }
         if (tapToContinueText != null)
         {
             tapToContinueText.CrossFadeAlpha(1.0f, textFadeTime, true);
