@@ -3,13 +3,13 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject[] hazards = null;
-    [SerializeField] float spawnDistance = 0;
-    [SerializeField] int minPerWave = 0, maxPerWave = 0;
-    [SerializeField] float initialWaitInSeconds = 0;
-    [SerializeField] float waveGapInSeconds = 0;
-    [SerializeField] float spawnGapInSeconds = 0;
-    [SerializeField] GameObject[] subscribers = null;
+    [SerializeField] GameObject[] hazards;
+    [SerializeField] float spawnDistance;
+    [SerializeField] int minPerWave, maxPerWave;
+    [SerializeField] float initialWaitInSeconds;
+    [SerializeField] float waveGapInSeconds;
+    [SerializeField] float spawnGapInSeconds;
+    [SerializeField] GameObject[] subscribers;
 
     // Use this for initialization
     void Start()

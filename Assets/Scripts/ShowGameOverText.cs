@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowGameOverText : MonoBehaviour {
-    [SerializeField] UnityEngine.UI.Text gameOverText = null;
-    [SerializeField] UnityEngine.UI.Text tapToContinueText = null;
-    [SerializeField] GameObject hideOnGameOver = null;
-    [SerializeField] GameObject finalExplosion = null;
+    [SerializeField] Text gameOverText;
+    [SerializeField] Text tapToContinueText;
+    [SerializeField] GameObject hideOnGameOver;
+    [SerializeField] GameObject finalExplosion;
 
     bool isReadyToRestart;
     const float textFadeTime = 1.0f;
