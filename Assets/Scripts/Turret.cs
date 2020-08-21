@@ -3,7 +3,6 @@
 #endif
 using UnityEngine;
 
-
 public class Turret : MonoBehaviour {
 	public float mouseRotationSpeed;
 #if !ATTITUDE_BASED_ROTATION

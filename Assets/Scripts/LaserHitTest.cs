@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Assertions;
+﻿using AssemblyCSharp;
+using UnityEngine;
 
 public class LaserHitTest : MonoBehaviour {
 	public float fireRate;
@@ -29,6 +28,6 @@ public class LaserHitTest : MonoBehaviour {
 			hit.collider.gameObject.SendMessage ("OnHit"); 
 			endPoint = hit.point;
 		}
-		AssemblyCSharp.SharedLibrary.InformSubscribers(views, "FireAt", endPoint);
+		SharedLibrary.InformSubscribers(views, "FireAt", endPoint);
 	}
 }
