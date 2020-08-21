@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void SpawnAsteroid()
+    public void SpawnAsteroid()
     {
         var orbitData = new OrbitData(spawnDistance, orbitMode);
         var hazardPrototype = hazards[Random.Range(0, hazards.Length)];
