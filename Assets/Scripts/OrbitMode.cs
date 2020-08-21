@@ -26,7 +26,7 @@ public class OrbitMode : MonoBehaviour
     
     private void OnOrbitModeUpdate()
     {
-        AssemblyCSharp.SharedLibrary.InformSubscribers(subscribers, "OrbitModeUpdated", GetOrbitMode());
+        SharedLibrary.InformSubscribers(subscribers, "OrbitModeUpdated", GetOrbitMode());
     }
 
     public void Start()

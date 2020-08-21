@@ -1,5 +1,4 @@
-﻿using AssemblyCSharp;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LaserHitTest : MonoBehaviour {
 	public float fireRate;

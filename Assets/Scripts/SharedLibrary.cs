@@ -1,15 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-namespace AssemblyCSharp
+public struct SharedLibrary
 {
-	public struct SharedLibrary
-	{
-		static public void InformSubscribers(GameObject[] subscribers, string msgName, object param = null) {
-			foreach (GameObject subscriber in subscribers) {
-				subscriber.SendMessage (msgName, param);
-			}
+	public static void InformSubscribers(IEnumerable<GameObject> subscribers, string msgName, object param = null) {
+		foreach (var subscriber in subscribers) {
+			subscriber.SendMessage (msgName, param);
 		}
 	}
-
 }
-
