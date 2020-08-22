@@ -13,21 +13,68 @@ A game for action-oriented kids (8+) and parents to bond via learning to coordin
 
 Fun found! After about eight hours.
 
+# Notes
+ The fun, starwarsy part is trying to track a target moving sideways through your field of view. That implies that targets need to stay in your field of view long enough for you to react and/or be predictable enough that you can anticipate them. So they shouldn't come right at you, and they shouldn't be so close and fast that they zip past and you only hit them by luck. OTOH they must move quickly or unpredictably enough that you can't just wait for them to fly in front of you.
+ 
+It is also good to have multiple targets in view at once because it is tempting to switch.
+If spinning 360 is allowed, I will do it, but it doesn't actually seem to be optimal (and it makes me dizzy), so a restriction or backstop or enemies that don't show up behind you seem like good ideas.
+ 
+ However, we have a choice between:
+    1. Targets that automatically pass through your crosshairs (e.g. spiralling all in the same plane).
+        These make it possible to stay in one place and hold down the fire button, which is boring.
+        If you decrease fire rate, it because a timing game: fire at the right instant. Better but not the point.
+    2. Targets that don't. This implies either
+        a) You have a way of figuring out where they are
+            Minimap: inelegant, hard to do for a sphere
+            Sound: need headphones (not always available and antisocial), and doesn't actually help much, especially in vertical orientation
+            TODO Multiplayer: the other player tells you "check your six!" Try simulating with AI. Only works if there are few targets that can be described simply
+        b) You don't. The game is then about turning to face the right direction, which is arbitrary and dumb.
+            However, if the targets come by more than once in a regular pattern, you might develop a feeling
+ TODO targets that spiral in vertical planes
+ TODO Targets that try to strafe the player
+     Why don't they just attack from the back?
+        Maybe they do, but not constantly, because they have to charge, turn, and charge back
+        Maybe you can only shoot in one hemisphere, and P2 does the other half
+ TODO Targets that avoid the player's crosshairs but have limited maneuverability
+    Should probably only be able to damage you briefly and/or when close, otherwise feels unfair
+    But the corresponding benefit is you get more than one chance to hit them
+    And they move laterally, but not (necessarily) predictably
+        They could try to avoid your shots, in fact
+ TODO 2d (y=0) targets that move away from crosshairs with limited acceleration (so you can spin fast to overtake them, and it takes them a moment to brake and run the other way)
+Remember that the feeling we want is
+# Test results
+##Waves 1 - 3, 1/s, 20s between waves
+Mode 0 (y=0): A bit dizzying, but tolerable. Need a lot of asteroids (5+ per wave, 20 is quite winnable), which increases dizziness because it is worth "sweeping" in one direction for a while, since there are many asteroids in whichever direction you choose. Maybe an early stage? N.B. Holding down the fire button works! It feels dangerous, and you miss a lot, but when the asteroids get close enough, you hit them. 
+Mode 1 (as 0 with backstop): Like 1 but less dizzying and a little easier (! this means that spinning isn't actually the best tactic). More than 180 degrees of arc would be nice.
+Mode 2 (y in range, horizontal circles): Slightly more dizzing, but still ok. 5 - 10 asteroids is fun, 20 is exciting but I lost. Better than Mode 0 (bzw. more general and useable as difficulty).
+Mode 3 (2 with backstop): Better than 1, I think: No dizziness, slightly easier (! I just barely managed 20). However, with high numbers of asteroids I felt like I was getting a lot of lucky shots as they got very close and fast.
+Mode 4 (great circles): seasick. Hard: 3 asteroids were already too much.
+Mode 5 (4 with backstop): Not bad, not seasick, but very hard and a little frustrating because it is hard to anticpate the orbits.
+Mode 6 (as 2 but occasional great circles): Similar to 1, of course. Unsure if it is better. With 10 I am not sure I got one (but of course I could guarantee one per wave). 20 I died.
+Mode 7 (as 6 with backstop): Feels pretty cool. No seasickness. Close asteroids feel really fast, but it is possible to get them because you can anticipate their orbits (so a less predictable enemy probably needs to be slower or you need to track them across a wider arc). Pauses between waves maybe a bit long, but having a pause felt good. Occasional "rogue" great circle asteroid is fun. Didn't try to spawn button.
 
 # T Suggestions
+
 Bonus asteroid that doesn't hit you, and when hit, it shows crosshairs (your crosshairs image is missing)
 # Targets
-
 * Add friendly ships that you don't want to hit
 * Later, when your ship moves, asteroids can travel in straight lines, possibly fragmenting like in classic Asteroids
 Shooting at nearby targets that swoop by fast captures the feeling much better than distant targets (which are fiddly, but not exciting, because little movement is needed).
 Instead of waves, try creating N (<=2) new targets for each target destroyed (fractional N => keep a running total in the background, or gives the chance of an asteroid being created). 
+  Or like Asteroids: split them in half the first time they are hit, then again, and the last ones are destroyed
 
-# Misc
-* Energy for guns competes with energy for shields, like Spacewar?
-* VR version!
+# Difficulty Rampup
+More Asteroids
+Faster Asteroids (either faster moving towards center or faster rotation)
+Smaller Asteroids
+Harder patterns, e.g. 
+-higher fractionOfGreatCircles bzw. larger number of guaranteed great circles per wave.
+-larger min/maxY
+
+# Misc 
+* Add victory screen at end of wave
 * Show death screen (from above or turn to face)
-* flashing when something gets close
+* flashing when something gets close for those playing without sound
 #Cannon
 You can have it alternate evenly (ta ta ta ta) or in bursts (ti taya ti taya). The movie does the former.
 You can have it recoil, or shoot when it reaches forward extension. The movie does the latter.
@@ -36,8 +83,7 @@ Movie firing rate is about 0.7 per battery, so 0.35 between shots... but in othe
 They are actually projectiles, not beams, in the film. Can we make projectiles not suck?
 
 ##Controls
-Add crosshairs again
-Or Add full blown star wars targeting system
+Add full blown star wars targeting system
  
 ###Movement
 
