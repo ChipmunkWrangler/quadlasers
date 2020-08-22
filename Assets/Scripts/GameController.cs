@@ -53,13 +53,13 @@ public class GameController : MonoBehaviour
         switch (orbitMode)
         {
             case 0: // horizontal circles, y = 0
-            case 3: // as mode 0, but backstop
+            case 1: // as mode 0, but backstop
                 return new HorizontalCircles(spawnDistance, 0, 0);
-            case 1: // horizontal circles, y is limited to +/- 22.5 degrees
-            case 4: // as mode 1, but backstop
+            case 2: // horizontal circles, y is limited to +/- 22.5 degrees
+            case 3: // as mode 2, but backstop
                 return new HorizontalCircles(spawnDistance, minY, maxY);
-            case 2: // random great circles
-            case 5: // as mode 2, but backstop
+            case 4: // random great circles
+            case 5: // as mode 4, but backstop
                 return new GreatCircles(spawnDistance);
             default:
                 Assert.IsTrue(false, $"Unknown orbit mode {orbitMode}");
@@ -89,6 +89,6 @@ public class GameController : MonoBehaviour
     public void OrbitModeUpdated(int orbitMode)
     {
         this.orbitMode = orbitMode;
-        backstop.SetActive(orbitMode > 2);
+        backstop.SetActive(orbitMode % 2 == 1);
     }
 }
