@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\Done_EvasiveManeuver.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GameOverEventPublisher.cs" />
+    <Compile Include="Assets\Scripts\GreatCircles.cs" />
+    <Compile Include="Assets\Scripts\HorizontalCircles.cs" />
     <Compile Include="Assets\Scripts\LaserCannonRecoil.cs" />
     <Compile Include="Assets\Scripts\LaserCannonSound.cs" />
     <Compile Include="Assets\Scripts\LaserHitTest.cs" />
