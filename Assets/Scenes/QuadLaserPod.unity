@@ -640,6 +640,8 @@ MonoBehaviour:
   backstop: {fileID: 246418982}
   subscribers:
   - {fileID: 393377274}
+  minY: -0.5
+  maxY: 0.5
 --- !u!4 &111306691
 Transform:
   m_ObjectHideFlags: 0
@@ -669,6 +671,7 @@ MonoBehaviour:
   subscribers:
   - {fileID: 111306689}
   - {fileID: 1917235694}
+  defaultMode: 5
 --- !u!114 &111306693
 MonoBehaviour:
   m_ObjectHideFlags: 0

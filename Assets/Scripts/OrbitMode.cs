@@ -5,6 +5,7 @@ using UnityEngine;
 public class OrbitMode : MonoBehaviour
 {
     [SerializeField] public GameObject[] subscribers;
+    [SerializeField] public int defaultMode;
     private const string Key = "orbitMode";
     private const int NumOrbitModes = 6;
 
@@ -13,9 +14,9 @@ public class OrbitMode : MonoBehaviour
         SetOrbitMode((GetOrbitMode() + 1) % NumOrbitModes);
         OnOrbitModeUpdate();
     }
-    private static int GetOrbitMode()
+    private int GetOrbitMode()
     {
-        return PlayerPrefs.GetInt(Key, 0);
+        return PlayerPrefs.GetInt(Key, defaultMode);
     }
 
 
