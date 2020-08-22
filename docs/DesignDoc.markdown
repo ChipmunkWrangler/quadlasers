@@ -21,8 +21,6 @@ Bonus asteroid that doesn't hit you, and when hit, it shows crosshairs (your cro
 * Add friendly ships that you don't want to hit
 * Later, when your ship moves, asteroids can travel in straight lines, possibly fragmenting like in classic Asteroids
 Shooting at nearby targets that swoop by fast captures the feeling much better than distant targets (which are fiddly, but not exciting, because little movement is needed).
-* Need directional sound, attenuated by distance, to show which way to turn
-  * Maybe fewer targets so it doesn't get overwhelming (aurally or gamewise) then
 Instead of waves, try creating N (<=2) new targets for each target destroyed (fractional N => keep a running total in the background, or gives the chance of an asteroid being created). 
 
 # Misc

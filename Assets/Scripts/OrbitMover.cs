@@ -15,7 +15,7 @@ public class OrbitMover : MonoBehaviour
     // However, we have a choice between:
     //    1. Targets that automatically pass through your crosshairs (e.g. spiralling all in the same plane).
     //        These make it possible to stay in one place and hold down the fire button, which is boring.
-    //        TODO Maybe it is enough to make them faster?
+    //        If you decrease fire rate, it because a timing game: fire at the right instant. Better but not the point.
     //    2. Targets that don't. This implies either
     //        a) You have a way of figuring out where they are
     //            Minimap: inelegant, hard to do for a sphere
@@ -26,7 +26,6 @@ public class OrbitMover : MonoBehaviour
     // I tried targets that spiral inwards on random great circles, but it made me seasick.
     // I tried targets in the horizontal plane, but at varying heights. This is less sickening, but the most effective approach is to face directly up or down and tip slightly... not satisfying
     // TODO targets that spiral in vertical planes
-    // TODO Targets that move directly towards the player 
     // TODO Targets that try to strafe the player
     //     Why don't they just attack from the back?
     //        Maybe they do, but not constantly, because they have to charge, turn, and charge back
@@ -65,10 +64,6 @@ public class OrbitMover : MonoBehaviour
         var speedMultiplier = Mathf.Min(1.0f, baseDistance / dist);
         var angleToMove = orbitSpeedAtBaseDistance * speedMultiplier * Time.deltaTime;
         transform.RotateAround(orbitCentre, orbitAxis, angleToMove);
-        // 10: You can hold the fire down and stay in place
-        // 20 is reasonable, but you have to track
-        // 80 you have to wait until they get closer, like 30
-        // 120 you can still hit when it gets close
         MoveTowards(toCentre.normalized, dist);
     }
 
