@@ -74,6 +74,11 @@ public class GameController : MonoBehaviour
         var asteroid = Instantiate(hazardPrototype, orbitData.SpawnPosition, Quaternion.identity);
         asteroid.SendMessage("SetController", gameObject);
         asteroid.SendMessage("OrbitAround", orbitData);
+#if !UNITY_EDITOR
+        var trailRenderer = asteroid.GetComponentInChildren<TrailRenderer>();
+        if (trailRenderer)
+            trailRenderer.enabled = false;
+#endif
     }
 
     private void ObjectDestroyed(GameObject objectDestroyed)
