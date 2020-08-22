@@ -631,7 +631,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 3}
   - {fileID: 100000, guid: 4abecc8fd1cd84e85adadb3bacb38c2e, type: 3}
   - {fileID: 100000, guid: 124b839140c5144e4a6e745972c7fc26, type: 3}
-  spawnDistance: 100
+  spawnDistance: 50
   minPerWave: 1
   maxPerWave: 3
   initialWaitInSeconds: 1
