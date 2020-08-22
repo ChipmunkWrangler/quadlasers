@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public float initialWaitInSeconds;
     [SerializeField] public float waveGapInSeconds;
     [SerializeField] public float spawnGapInSeconds;
+    [SerializeField] public float fractionOfGreatCirclesInMixedModes;
     [SerializeField] public GameObject backstop;
     [SerializeField] public GameObject[] subscribers;
 
@@ -44,10 +45,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private static OrbitData CalculateOrbitData(float spawnDistance, int orbitMode, float minY, float maxY)
+    private OrbitData CalculateOrbitData(float spawnDistance)
     {
-        // mode 3: TODO vertical circles around y = 0
-        // mode : TODO vertical circles around y = up to minY/maxY 
+        // mode: TODO vertical circles around y = 0
+        // mode: TODO vertical circles around y = up to minY/maxY 
         // mode: like 1 or 2 but limited vertical mobility
         // mode: like 0 but turret is fixed at y=0 (like long ago)
         switch (orbitMode)
@@ -61,6 +62,12 @@ public class GameController : MonoBehaviour
             case 4: // random great circles
             case 5: // as mode 4, but backstop
                 return new GreatCircles(spawnDistance);
+            case 6: // random great circles
+            case 7: // as mode 6, but backstop
+                if (Random.Range(0f, 1f) < fractionOfGreatCirclesInMixedModes)
+                    return new GreatCircles(spawnDistance);
+                else
+                    return new HorizontalCircles(spawnDistance, minY, maxY);
             default:
                 Assert.IsTrue(false, $"Unknown orbit mode {orbitMode}");
                 return new HorizontalCircles(spawnDistance, 0, 0);
@@ -69,7 +76,7 @@ public class GameController : MonoBehaviour
 
     public void SpawnAsteroid()
     {
-        var orbitData = CalculateOrbitData(spawnDistance, orbitMode, minY, maxY);
+        var orbitData = CalculateOrbitData(spawnDistance);
         var hazardPrototype = hazards[Random.Range(0, hazards.Length)];
         var asteroid = Instantiate(hazardPrototype, orbitData.SpawnPosition, Quaternion.identity);
         asteroid.SendMessage("SetController", gameObject);

@@ -637,6 +637,7 @@ MonoBehaviour:
   initialWaitInSeconds: 1
   waveGapInSeconds: 20
   spawnGapInSeconds: 1
+  fractionOfGreatCirclesInMixedModes: 0.1
   backstop: {fileID: 246418982}
   subscribers:
   - {fileID: 393377274}
